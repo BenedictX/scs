@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:src="@{~/bootStrap/css/bootStrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:src="@{~/bootStrap/css/bootStrap-theme.min.css}" rel="stylesheet" type="text/css"/>
+    <script src="/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/js/score/scoreDetail.js" type="text/javascript" th:inline="javascript"></script>
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="score" type="com.invengo.scs.domain.Sore"*/-->
+<div align="center">
+    <table align="center">
+        <input type="hidden" id ="dataId" name="dataId" th:value="${score.dataId}">
+        <tr>
+            <td>stuNo</td>
+            <td><span id="stuNo" type="text" name="stuNo" th:text="${score.student.stuNo}" ></span></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>stuName</td>
+            <td><span id="stuName" type="text" name="stuName" th:text="${score.student.stuName}" ></span></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>courseId</td>
+            <td><!--/*@thymesVar id="course" type="com.invengo.scs.domain.Course"*/-->
+            <span id="courseId" type="text" name="courseId" th:text="${score.course.courseId}" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>courseName</td>
+            <td><!--/*@thymesVar id="course" type="com.invengo.scs.domain.Course"*/-->
+                <span id="courseName " type="text" name="courseName" th:text="${score.course.courseName}" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>courseScore</td>
+            <td><input type="text" id="courseScore" name="courseScore" th:value="${score.courseScore}" onchange="checkCourseScore()"></td>
+            <td id="courseScoreError"></td>
+        </tr>
+        <tr>
+            <td>
+                <!--/*@thymesVar id="currentPageNumber" type="java.lang.Integer"*/-->
+                <button id="update" style="display: none" th:onclick="'update(\''+${currentPageNumber}+'\')'">Update</button>
+            </td>
+            <td>
+                <!--/*@thymesVar id="currentPageNumber" type="java.lang.Integer"*/-->
+                <button id = "goBack" th:onclick="'goBack(\''+${currentPageNumber}+'\')'">GoBack</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

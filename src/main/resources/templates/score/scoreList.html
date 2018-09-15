@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:src="@{~/bootStrap/css/bootStrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:src="@{~/bootStrap/css/bootStrap-theme.min.css}" rel="stylesheet"  type="text/css"/>
+    <script src="/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/js/score/score.js"type="text/javascript" th:inline="javascript"></script>
+    <script src="/js/score/queryScore.js"type="text/javascript" th:inline="javascript"></script>
+    <script src="/js/score/addScore.js"type="text/javascript" th:inline="javascript"></script>
+    <script src="/js/score/scorePage.js"type="text/javascript" th:inline="javascript"></script>
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="pageBean" type="com.invengo.scs.utils.PageBean"*/-->
+<hr style=" height:2px;border:none;border-top:2px dotted #185598;"/>
+<div th:replace="score/queryScore::html"></div>
+<hr style=" height:2px;border:none;border-top:2px dotted #185598;"/>
+<div th:replace="score/addScore::html"></div>
+<hr style=" height:2px;border:none;border-top:2px dotted #185598;"/>
+<div align ="center">
+    <span id="resultOfQuery" style="display:none">resultOfQuery</span>
+</div>
+<div align ="center">
+    <button id = "showAll"  style="display:none" onclick="ShowAll()">show All</button>
+</div>
+<div align="center">
+    <table id="scoreTable" align="center">
+        <tr align="center">
+            <th>dataId</th>
+            <th>stuNo</th>
+            <th>stuName</th>
+            <th>courseId</th>
+            <th>courseName</th>
+            <th>courseScore</th>
+            <th>update</th>
+            <th>change</th>
+        </tr>
+        <tbody id="tbody"  align="center">
+        </tbody>
+    </table>
+</div>
+<hr style=" height:2px;border:none;border-top:2px dotted #185598;"/>
+<div th:replace="score/scorePage::html"></div>
+</body>
+</html>

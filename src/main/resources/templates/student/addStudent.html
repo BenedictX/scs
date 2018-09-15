@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div name="addStudent" align="center">
+    <table align="center">
+        <tr>
+            <th colspan="2">add student</th>
+        </tr>
+        <tr>
+            <td>stuNo</td>
+            <td><input type="text" id="addStuNo" name="stuNo" value="" onblur="checkStuNo()"></td>
+            <td id="addStuNoError"></td>
+        </tr>
+        <tr>
+            <td>stuName</td>
+            <td><input type="text" id="addStuName" name="stuName" value="" onblur="checkStuName()"></td>
+            <td id="addStuNameError"></td>
+        </tr>
+        <tr>
+            <td>sex</td>
+            <td>
+                <input type="radio" id="male" name="addSex" value="1" th:checked="checked">男
+                <input type="radio" id="female" name="addSex" value="2">女
+            </td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input type="text" id="addAge" name="age" onblur="checkAge()"></td>
+            <td id="addAgeError"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="addStudent()">add student</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script th:inline="javascript">
+    addStudent = function () {
+        if( !checkForm()){
+            return false;
+        }
+        var addStuNo = document.getElementById("addStuNo").value;
+        var addStuName = document.getElementById("addStuName").value;
+        var addAge = document.getElementById("addAge").value;
+        var male = document.getElementById("male");
+        var female = document.getElementById("female");
+        var pageSize = document.getElementById("pageSize").value;
+        var totalPages = document.getElementById("totalPages").innerText;
+        var currentPageNumber = document.getElementById("currentPageNumber").innerText;
+        var addSex = 0;
+        if (male.checked == true) {
+            addSex = 1;
+        }
+        if (female.checked == true) {
+            addSex = 2;
+        }
+        var student = {stuNo: addStuNo, stuName: addStuName, sex: addSex, age: addAge};
+        console.log(student);
+        $.ajax({
+            url: "/addStudent",
+            type: "POST",
+            data: JSON.stringify(student),
+            contentType: 'application/json;charset=utf-8',
+            async: true,
+            error: function () {
+                alert("Add Error!");
+            },
+            success: function (result) {
+                if (result.isAdd =="101") {
+                    alert("Add Success !");
+                    totalPages = result.totalPages;
+                    findStudent(totalPages, pageSize);
+                    $("#currentPageNumber").text(totalPages);
+                }
+                if (result.isAdd =="102") {
+                    alert("Add Failed !");
+                    findStudent(currentPageNumber, pageSize);
+                }
+            }
+        });
+
+    }
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div name="addScore" align="center">
+    <table align="center">
+        <tr>
+            <th colspan="4">addScore</th>
+        </tr>
+        <tr>
+            <td>stuNo</td>
+            <td>
+                <select  id="addStuNo" name="stuNo"  onchange="findStuName()">
+                    <option value="">Number Of Student</option>
+                </select>
+            </td>
+            <td>stuName</td>
+            <td> <span id="addStuName"></span></td>
+        </tr>
+        <tr>
+            <td>courseName</td>
+            <td>
+                <select  id="addCourseName" name="courseName"   onchange="findCourseId()">
+                    <option value="">courseName</option>
+                </select>
+            </td>
+            <td>courseId</td>
+            <td> <span id="addCourseId"></span></td>
+        </tr>
+        <tr>
+            <td>courseScore</td>
+            <td colspan="2">&nbsp;&nbsp;<input type="text" id="addCourseScore" name="courseScore" onchange="checkAddCourseScore()"></td>
+            <td id="addCourseScoreError"></td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center">
+                <button onclick="addScore()">addScore</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div name="queryScore" align="center">
+    <table align="center">
+        <tr>
+            <th colspan="3">queryScore</th>
+        </tr>
+        <tr>
+            <td>stuNo</td>
+            <td  align="center"><input type="text" id="queryStuNo" name="stuNo"  onblur="checkQueryStuNo()"></td>
+            <td id="queryStuNoError"></td>
+        </tr>
+        <tr>
+            <td>courseId</td>
+            <td align="center"><input type="text" id="queryCourseId" name="courseId" onblur="checkQueryCourseId()"></td>
+            <td id="queryCourseIdError"></td>
+        </tr>
+        <tr>
+            <td>courseName</td>
+            <td  align="center"> <input type="text" id="queryCourseName" name="courseName" onblur="checkQueryCourseName()"></td>
+            <td id="queryCourseNameError"></td>
+        </tr>
+        <tr>
+            <td>courseScore</td>
+            <td>Min:&nbsp<input type="text" id="queryCourseScoreMin" name="courseScoreMin" style="width:40px" onblur="checkQueryCourseScoreMin()">&nbspMax:&nbsp<input type="text" id="queryCourseScoreMax" name="courseScoreMax" style="width:40px" onblur="checkQueryCourseScoreMax()"></td>
+            <td id="queryCourseScoreError"></td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">
+                <button onclick="queryScore(1)">queryScore</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</html>

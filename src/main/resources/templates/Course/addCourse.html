@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div name="addCourse" align="center">
+    <table align="center">
+        <tr>
+            <th colspan="2">addCourse</th>
+        </tr>
+        <tr>
+            <td>courseName</td>
+           <td><input type="text" id="addCourseName" name = "courseName" value="" onblur="checkCourseName()" ></td>
+            <td id="addCourseNameError"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="addCourse()">addCourse</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</html>

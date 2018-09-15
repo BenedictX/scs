@@ -1,0 +1,68 @@
+学生信息管理系统(MySql)：
+一、学生管理
+    实现对学生信息的增、删、改、查
+    查询条件：学生学号模糊查询、姓名(模糊查询)、创建时间，按序号正序排列。
+    删除：删除需将该学生的成绩删除。
+
+二、课程管理：
+    实现对课程信息的增、删、改、查
+    查询条件：课程编号、课程名称，两个条件都支持模糊查询
+
+三、成绩管理
+    实现对成绩信息的增、删、改、查
+    查询：学生(下拉选单)、课程(下拉选单)，成绩范围
+
+以上查询都需分页，采用ajax技术获取数据。前端ui自行编写(不能直接用ui框架)，不对美观进行要求。
+
+
+
+drop table if exists Course;
+
+drop table if exists Score;
+
+drop table if exists Student;
+
+/*==============================================================*/
+/* Table: Course                                                */
+/*==============================================================*/
+create table Course
+(
+   CourseId             int not null auto_increment,
+   CourseName           varchar(50) not null comment '课程名称',
+   primary key (CourseId)
+);
+
+alter table Course comment '课程信息表';
+
+/*==============================================================*/
+/* Table: Score                                                 */
+/*==============================================================*/
+create table Score
+(
+   DataId               int not null auto_increment,
+   StuNo                varchar(30) not null comment '学号',
+   CourseId             int not null comment '课程编号',
+   CourseScore          float not null comment '成绩',
+   primary key (DataId)
+);
+
+alter table Score comment '成绩信息表';
+
+/*==============================================================*/
+/* Table: Student                                               */
+/*==============================================================*/
+create table Student
+(
+   DataId               int not null auto_increment,
+   StuNo                varchar(30) not null comment '学号',
+   StuName              varchar(30) not null comment '姓名',
+   Sex                  int not null comment '性别:1-男;2-女',
+   Age                  int not null comment '年龄',
+   CreateDate           datetime not null comment '创建时间',
+   primary key (DataId)
+);
+
+alter table Student comment '学生信息表';
+
+
+

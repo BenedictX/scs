@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="queryStudent" type="com.invengo.scs.domain.Student"*/-->
+<div name="findStudent" align="center">
+    <table align="center">
+        <tr>
+            <th colspan="3">query student</th>
+        </tr>
+        <tr>
+            <td>stuNo</td>
+            <td><input type="text" id="queryStuNo" name="stuNo" value="" onblur="checkQueryStuNo()"></td>
+            <td id="queryStuNoError"></td>
+        </tr>
+        <tr>
+            <td>stuName</td>
+            <td><input type="text" id="queryStuName" name="stuName" value="" onblur="checkQueryStuName()"></td>
+            <td id="queryStuNameError"></td>
+        </tr>
+        <tr>
+            <td>sex</td>
+            <td>
+                <input type="radio" id="queryMale" name="sex" value="1" th:checked="ckecked">男
+                <input type="radio" id="queryFemale" name="sex" value="2">女
+            </td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input type="text" id="queryAge" name="age" value="" onblur="checkQueryAge()"></td>
+            <td id="queryAgeError"></td>
+        </tr>
+        <tr>
+            <td>startDate:</td>
+            <td><input type="date" id="dateStart" name="createDate" value="" onblur="checkQueryDateStart()"></td>
+            <td id="startDateError"></td>
+        </tr>
+        <tr>
+            <td>endDate</td>
+            <td><input type="date" id="dateEnd" name="createDate" value="" onblur="checkQueryDateEnd()"></td>
+            <td id="endDateError"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="queryStudentButton" onclick="queryStudent(0)">queryStudent</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</html>

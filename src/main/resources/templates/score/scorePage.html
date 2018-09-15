@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div id="pageDiv"class="divBody" align="center">
+    <div class="divContent">
+        <table>
+            <tr>
+                <td>
+                    <select id="pageSize" onchange="pageSizeChange()">
+                        <option th:text="10" th:selected="selectd"></option>
+                        <option th:text="20"></option>
+                        <option th:text="30"></option>
+                    </select>
+                    Items
+                </td>
+                <td><a id="home" href="javascript:Home()"></a></td>
+                <td><a id="up" href="javascript:Up()"></a></td>
+                <td><span id="pageCode"></span></td>
+                <td><a id="next" href="javascript:Next()"></a></td>
+                <td><a id="end" href="javascript:End()"></a></td>
+                <td>
+                    <span id="currentPageNumber" ></span>/<span id="totalPages"></span>
+                </td>
+                <td>
+                    <input id="inputPageNumber" style="width:20px"/>
+                    <button id="jump" onclick="jump()">跳转</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div name="queryCourse" align="center">
+    <table align="center">
+        <tr>
+            <th colspan="2">queryCourse</th>
+        </tr>
+        <tr>
+            <td>courseId</td>
+            <td><input type="text" id="queryCourseId" name ="courseId" value="" onblur="checkQueryCourseId()"/></td>
+            <td id="queryCourseIdError"></td>
+        </tr>
+        <tr>
+            <td>courseName</td>
+            <td><input type="text" id="queryCourseName" name="courseName" value="" onblur="checkQueryCourseName()"></td>
+            <td id="queryCourseNameError"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="queryCourse(1)">queryCourse</button>
+            </td>
+        </tr>
+    </table>
+</div>
